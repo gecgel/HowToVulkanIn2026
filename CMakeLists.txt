@@ -68,6 +68,27 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(tinyobjloader)
 
+add_executable(Tutorial
+    "${CMAKE_SOURCE_DIR}/sources/tutorial.cpp"
+)
+
+target_link_libraries(Tutorial PRIVATE
+    Vulkan::Vulkan
+    SDL3::SDL3
+    volk::volk
+    GPUOpen::VulkanMemoryAllocator
+    glm::glm
+    slang
+    ktx
+    tinyobjloader
+)
+
+set_target_properties(Tutorial PROPERTIES
+    CXX_SCAN_FOR_MODULES OFF
+    CXX_STANDARD 20
+    CXX_STANDARD_REQUIRED ON
+)
+
 add_executable(App
     "${CMAKE_SOURCE_DIR}/sources/main.cpp"
 )
