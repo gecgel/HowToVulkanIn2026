@@ -19,8 +19,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/quaternion.hpp>
-#include "slang/slang.h"
-#include "slang/slang-com-ptr.h"
+#include <slang.h>
+#include <slang-com-ptr.h>
 #include <ktx.h>
 #include <ktxvulkan.h>
 #define TINYOBJLOADER_IMPLEMENTATION

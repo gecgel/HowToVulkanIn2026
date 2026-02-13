@@ -1,0 +1,11 @@
+{
+  "dependencies": [
+    "glm",
+    { "name": "ktx", "features": ["vulkan"] },
+    { "name": "sdl3", "features": ["vulkan"] },
+    "shader-slang",
+    "volk",
+    "vulkan-memory-allocator",
+    "tinyobjloader"
+  ]
+}

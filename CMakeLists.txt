@@ -2,71 +2,13 @@ cmake_minimum_required(VERSION 4.0)
 project(HowToVulkanIn2026)
 
 find_package(Vulkan REQUIRED)
-
-include(FetchContent)
-
-FetchContent_Declare(
-    sdl
-    GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
-    GIT_TAG release-3.2.28
-    GIT_SHALLOW ON
-    GIT_PROGRESS ON
-)
-FetchContent_MakeAvailable(sdl)
-
-FetchContent_Declare(
-    volk
-    GIT_REPOSITORY https://github.com/zeux/volk
-    GIT_TAG vulkan-sdk-1.4.341.0
-    GIT_SHALLOW ON
-    GIT_PROGRESS ON
-)
-FetchContent_MakeAvailable(volk)
-
-FetchContent_Declare(
-    vma
-    GIT_REPOSITORY https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator
-    GIT_TAG v3.3.0
-    GIT_SHALLOW ON
-    GIT_PROGRESS ON
-)
-FetchContent_MakeAvailable(vma)
-
-FetchContent_Declare(
-    glm
-    GIT_REPOSITORY https://github.com/g-truc/glm
-    GIT_TAG 1.0.3
-    GIT_SHALLOW ON
-    GIT_PROGRESS ON
-)
-FetchContent_MakeAvailable(glm)
-
-FetchContent_Declare(
-    slang
-    GIT_REPOSITORY https://github.com/shader-slang/slang
-    GIT_TAG v2026.2.1
-    GIT_SHALLOW ON
-    GIT_PROGRESS ON
-)
-FetchContent_MakeAvailable(slang)
-
-FetchContent_Declare(
-    ktx_software
-    GIT_REPOSITORY https://github.com/KhronosGroup/KTX-Software
-    GIT_TAG v4.4.2
-    GIT_SHALLOW ON
-    GIT_PROGRESS ON
-)
-FetchContent_MakeAvailable(ktx_software)
-
-FetchContent_Declare(
-    tinyobjloader
-    GIT_REPOSITORY https://github.com/tinyobjloader/tinyobjloader
-    GIT_TAG release
-    GIT_SHALLOW ON
-    GIT_PROGRESS ON
-)
-FetchContent_MakeAvailable(tinyobjloader)
+find_package(SDL3 CONFIG REQUIRED)
+find_package(volk CONFIG REQUIRED)
+find_package(VulkanMemoryAllocator CONFIG REQUIRED)
+find_package(glm CONFIG REQUIRED)
+find_package(slang CONFIG REQUIRED)
+find_package(ktx CONFIG REQUIRED)
+find_package(tinyobjloader CONFIG REQUIRED)
 
 add_executable(Tutorial
     "${CMAKE_SOURCE_DIR}/sources/tutorial.cpp"
@@ -75,12 +17,12 @@ add_executable(Tutorial
 target_link_libraries(Tutorial PRIVATE
     Vulkan::Vulkan
     SDL3::SDL3
-    volk::volk
+    volk::volk_headers
     GPUOpen::VulkanMemoryAllocator
-    glm::glm
-    slang
-    ktx
-    tinyobjloader
+    glm::glm-header-only
+    slang::slang
+    KTX::ktx
+    tinyobjloader::tinyobjloader
 )
 
 set_target_properties(Tutorial PROPERTIES
@@ -96,12 +38,12 @@ add_executable(App
 target_link_libraries(App PRIVATE
     Vulkan::Vulkan
     SDL3::SDL3
-    volk::volk
+    volk::volk_headers
     GPUOpen::VulkanMemoryAllocator
-    glm::glm
-    slang
-    ktx
-    tinyobjloader
+    glm::glm-header-only
+    slang::slang
+    KTX::ktx
+    tinyobjloader::tinyobjloader
 )
 
 set_target_properties(App PROPERTIES

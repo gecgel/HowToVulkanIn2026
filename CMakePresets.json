@@ -15,7 +15,9 @@
         "BUILD_SHARED_LIBS": false,
         "CMAKE_COMPILE_WARNING_AS_ERROR": false,
         "CMAKE_EXPORT_COMPILE_COMMANDS": false,
-        "CMAKE_INTERPROCEDURAL_OPTIMIZATION": true
+        "CMAKE_INTERPROCEDURAL_OPTIMIZATION": true,
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows"
       }
     },
     {
