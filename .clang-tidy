@@ -1,0 +1,9 @@
+# cSpell: disable
+Checks: "*\
+  ,-fuchsia-trailing-return\
+  ,-hicpp-deprecated-headers\
+  ,-llvmlibc-callee-namespace\
+  ,-llvmlibc-implementation-in-namespace\
+  ,-llvmlibc-restrict-system-libc-headers\
+  ,-modernize-deprecated-headers\
+  "
